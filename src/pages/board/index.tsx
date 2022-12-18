@@ -208,7 +208,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     }))
 
     const user = {
-        nome: session.user?.name,
+        nome: session?.user?.name,
         id: session?.id,
         vip: session?.vip,
         lastDonate: session?.lastDonate,
