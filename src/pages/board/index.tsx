@@ -194,16 +194,6 @@ export default function Board({ user, data }: boardProps) {
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     const session = await getSession({ req })
 
-    if (!session?.vip) {
-
-        return {
-            redirect: {
-                destination: '/',
-                permanent: false
-            }
-        }
-    }
-
     const tasks = await firebase.firestore()
         .collection('Tarefas')
         .where('userId', '==', session?.id)
