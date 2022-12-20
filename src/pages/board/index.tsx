@@ -137,7 +137,7 @@ export default function Board({ user, data }: boardProps) {
                         onChange={(e) => setInput(e.target.value)}
                     />
                     <button type="submit">
-                        <FiPlus size={25} color="#17181f" />a
+                        <FiPlus size={25} color="#17181f" />
                     </button>
                 </form>
                 <h1>Voce tem {taskList.length} {taskList.length === 1 ? "Tarefa!" : "Tarefas!"}</h1>
@@ -193,6 +193,16 @@ export default function Board({ user, data }: boardProps) {
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     const session = await getSession({ req })
+
+    if (!session) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false
+            }
+        }
+    }
+
 
     const tasks = await firebase.firestore()
         .collection('Tarefas')
