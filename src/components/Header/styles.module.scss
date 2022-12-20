@@ -10,20 +10,22 @@
     display: flex;
     align-items: center;
 
-    img{
-        cursor:pointer;
+    img {
+        cursor: pointer;
     }
 
     nav {
-        margin-left: 5rem;
-        height: 5rem;
+        margin-left: auto;
+        display: flex;
+        align-items: center;
 
-        a{
-            display: inline-block;
+        a {
+            display: flex;
+            align-items: center;
+            text-align: center;
             position: relative;
-            padding: 0 0 .5rem;
+            padding: 0 0 0.5rem;
             height: 5rem;
-            line-height: 5rem;
             color: #fff;
 
             & + a {
@@ -35,5 +37,4 @@
     button {
         margin-left: auto;
     }
-
 }

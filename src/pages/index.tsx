@@ -27,7 +27,8 @@ export default function Home({data}:HomeProps) {
         <title>Board - Organizando suas tarefas.</title>
       </Head>
       <main className={styles.contentContainer}>
-        <Image src={boardUser} alt="Ferramenta board" />
+        <Image src={boardUser} className={styles.boardImg}
+        priority={true} alt="Ferramenta board" />
 
         <section className={styles.callToAction}>
           <h1>
