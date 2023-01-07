@@ -61,7 +61,7 @@ export default function Board({ user, data }: boardProps) {
                     setTaskEdit(null)
                     setInput('')
                 })
-                .catch(err => console.log("erro"))
+                .catch((err:ResponseType) => console.log("erro"))
             return
         }
 
@@ -72,7 +72,7 @@ export default function Board({ user, data }: boardProps) {
                 userId: user.id,
                 nome: user.nome,
             })
-            .then((doc) => {
+            .then((doc:any) => {
                 let data = {
                     id: doc.id,
                     created: new Date(),
@@ -85,7 +85,7 @@ export default function Board({ user, data }: boardProps) {
                 setTaskList([...taskList, data])
                 setInput('')
             })
-            .catch((err) => {
+            .catch((err:ResponseType) => {
                 console.log('erro: ', err)
             })
     }
@@ -101,7 +101,7 @@ export default function Board({ user, data }: boardProps) {
 
                 setTaskList(taskAtt)
             })
-            .catch(err => console.log('Erro', err))
+            .catch((err: ResponseType) => console.log('Erro', err))
 
     }
 
@@ -209,7 +209,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
         .where('userId', '==', session?.id)
         .orderBy('created', 'asc')
         .get()
-    const data = JSON.stringify(tasks.docs.map(u => {
+    const data = JSON.stringify(tasks.docs.map((u:any) => {
         return {
             id: u.id,
             createdFormated: format(u.data().created.toDate(), 'dd MMMM yyyy'),
