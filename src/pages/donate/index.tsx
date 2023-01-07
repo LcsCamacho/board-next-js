@@ -34,14 +34,13 @@ export default function Donate({ user }: DonateProps) {
             })
     }
 
-
     return (
         <>
             <Head>
                 <title>Ajude a plataforma board ficar online!</title>
             </Head>
             <main className={styles.container}>
-                <Image src={imgRocket} alt="seja apoiador" />
+                <Image className={styles.rocket} src={imgRocket} alt="seja apoiador" />
                 {
                     vip && (
                         <div className={styles.vip}>
